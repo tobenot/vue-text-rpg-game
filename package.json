@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve",
+    "build:local": "cross-env DEPLOY_PATH=/ vue-cli-service build",
+    "preview": "serve -s dist",
+    "deploy:local": "node scripts/localDeploy.js",
+    "deploy": "sh deploy.sh"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "@vue/compiler-sfc": "^3.2.47",
+    "cross-env": "^7.0.3",
+    "serve": "^14.2.0"
+  },
+  "dependencies": {
+    "vue": "^3.2.47",
+    "vuex": "^4.1.0"
+  }
+}

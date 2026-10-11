@@ -14,13 +14,13 @@ A text-based adventure RPG web game built with Vue 3. Explore a mysterious fores
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/forest-of-mysteries.git
+   git clone https://github.com/tobenot/vue-text-rpg-game.git
    ```
 
 2. Install dependencies:
    ```
-   cd forest-of-mysteries
-   npm install
+   cd vue-text-rpg-game
+   npm ci
    ```
 
 3. Run the development server:
@@ -29,6 +29,14 @@ A text-based adventure RPG web game built with Vue 3. Explore a mysterious fores
    ```
 
 4. Open `http://localhost:8080` in your browser to start playing
+
+## Recovery status
+
+The package and lockfile are tracked (Vue CLI 5.0.8, Vue 3 / Vuex 4), but this checkout is not established as a complete working cold start. The conventional `public/index.html` template is absent from both Git and disk, and no custom HTML template is configured. `src/store/index.js` also retains a default `Vue` import despite the Vue 3 dependency; this inspection records the compatibility candidate without claiming a reproduced compiler error. No dependencies were installed or build/browser tests run.
+
+Executing the actual `vue.config.js` in a VM with an explicitly synthetic `defineConfig` helper shows production `publicPath` is still `/<repository-name>/`. Changing `DEPLOY_PATH` through `build:local` or `deploy:local` has no effect because the config does not read it. The VM confirms the configuration branch only, not Vue CLI build behavior.
+
+`npm run deploy` executes a historical script that initializes Git in `dist/` and force-pushes to a placeholder remote. Do not use it as a build, local preview or repository synchronization command. A local root deployment needs a real path configuration and restored template first. This audit changes documentation only, not the app, lockfile or deployment script.
 
 ## Building for Production
 
@@ -64,13 +72,13 @@ Issues and pull requests are welcome. For major changes, please open an issue fi
 
 1. 克隆仓库:
    ```
-   git clone https://github.com/你的用户名/神秘森林冒险.git
+   git clone https://github.com/tobenot/vue-text-rpg-game.git
    ```
 
 2. 安装依赖:
    ```
-   cd 神秘森林冒险
-   npm install
+   cd vue-text-rpg-game
+   npm ci
    ```
 
 3. 运行开发服务器:
@@ -79,6 +87,14 @@ Issues and pull requests are welcome. For major changes, please open an issue fi
    ```
 
 4. 在浏览器中打开 `http://localhost:8080` 开始游戏
+
+## 当前恢复边界
+
+源码与锁文件已跟踪，但 checkout 没有 `public/index.html`，也没有配置其他 HTML 模板。store 中 Vue 3 的 default import 是待验证兼容候选，本轮不把源码观察当编译失败复现。未安装依赖、构建或启动浏览器，不能照旧 README 宣称拉取后直接可玩。
+
+当前生产 `publicPath` 仍为 `/<repository-name>/`。实际配置的 VM 执行表明 `DEPLOY_PATH=/` 不生效，因为 `vue.config.js` 未读取它，故 `build:local` 不能据名称视为根路径构建。真实 CLI 不在此次执行链中。
+
+`deploy.sh` 会在 `dist` 初始化仓库，并向 placeholder 目标 force push，不是普通构建或本次 Git 同步入口。本轮只澄清文书，不补造丢失模板、不改玩法或执行发布脚本。
 
 ## 构建生产版本
 
